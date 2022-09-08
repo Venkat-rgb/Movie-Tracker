@@ -1,0 +1,236 @@
+@import "./basicstyles";
+
+@mixin headingStyles {
+  color: $light-white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.89);
+}
+
+.movie__image {
+  width: 37rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+h1,
+p {
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  color: $light-white;
+  width: 94%;
+  max-width: 100%;
+  margin: 3rem auto 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 5rem;
+  justify-content: center;
+  animation: card__animation 1s ease;
+  .movie__content {
+    max-width: 100%;
+  }
+
+  .movie__tagline span {
+    font-style: italic;
+  }
+
+  .right__content {
+    font-family: "Inter", sans-serif;
+
+    & p {
+      font-size: 2.3rem;
+      // border-bottom: 0.1px solid rgb(92, 92, 92);
+      padding-bottom: 1rem;
+      color: $light-white;
+      font-weight: 600;
+    }
+
+    span {
+      margin-left: 1rem;
+      font-size: 2rem;
+      color: rgb(173, 173, 173);
+      font-weight: 500;
+    }
+
+    .movie__story {
+      line-height: 1.5;
+    }
+  }
+}
+
+.movie__cast--heading,
+.movie__heading,
+.movie__trailer--heading,
+.movie__crew--heading {
+  transition: all 1s ease;
+}
+
+.movie__cast--heading {
+  @include headingStyles;
+}
+
+.movie__crew--heading {
+  @include headingStyles;
+}
+
+.movie__heading {
+  @include headingStyles;
+  margin: 4rem 0;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.movie__cast,
+.movie__crew {
+  // max-width: 126rem;
+  width: 92%;
+  max-width: 100%;
+  margin: 5rem auto;
+
+  .swiper-slide {
+    cursor: pointer;
+    font-family: "Inter", sans-serif;
+    user-select: none;
+
+    img {
+      width: 100%;
+      border-radius: 0.8rem;
+      object-fit: cover;
+    }
+
+    .name__in__real {
+      color: $light-white;
+      font-size: 2rem;
+      margin: 1.3rem 0 1rem 0;
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    .name__in__movie {
+      color: rgb(146, 145, 145);
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.movie__trailer {
+  width: 92%;
+  max-width: 100%;
+  margin: 5rem auto;
+
+  .movie__trailer--heading {
+    @include headingStyles;
+    margin-top: 3rem;
+  }
+
+  iframe {
+    width: 100%;
+    border-radius: 1rem;
+  }
+}
+
+@keyframes card__animation {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .right__content,
+  .movie__content {
+    padding: 1.4rem;
+  }
+
+  .movie__image {
+    max-width: 100%;
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
+
+// .movie__cast {
+//   max-width: 130rem;
+//   padding: 2rem;
+//   margin: 0 auto;
+//   display: flex;
+//   flex-direction: column;
+//   position: relative;
+
+//   .actors {
+//     display: grid;
+//     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+//     // display: flex;
+//     gap: 4rem;
+//     // overflow: hidden;
+
+//     font-family: "Inter", sans-serif;
+
+//     .actor__details {
+//       transition: all 0.5s ease;
+//       &:hover {
+//         transform: translateY(-10px);
+//       }
+//     }
+
+//     .actor__details img {
+//       max-width: 20rem;
+//       border-radius: 1rem;
+//       cursor: pointer;
+//     }
+//   }
+
+//   .no__image {
+//     transform: translateY(-20px);
+//   }
+// }
+
+// button {
+//   position: absolute;
+//   top: 50%;
+//   width: 3.8rem;
+//   height: 3.8rem;
+//   border-radius: 50%;
+//   border: none;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+//   cursor: pointer;
+//   background-color: rgba(255, 255, 255, 0.7);
+
+//   svg {
+//     width: 2rem;
+//     height: 2rem;
+//     stroke: rgba(0, 0, 0, 0.6);
+//     stroke-width: 3px;
+//   }
+// }
+
+// .left__btn {
+//   transform: translate(-50%, -50%);
+// }
+
+// .right__btn {
+//   right: 0;
+//   transform: translate(-50%, -50%);
+// }

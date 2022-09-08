@@ -1,0 +1,217 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@400;500;600&family=Roboto:wght@400;500;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, 0.89);
+}
+
+.movie__image {
+  width: 37rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+}
+
+h1,
+p {
+  margin-bottom: 1.5rem;
+}
+
+.content {
+  color: #e0e0e0;
+  width: 94%;
+  max-width: 100%;
+  margin: 3rem auto 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-animation: card__animation 1s ease;
+          animation: card__animation 1s ease;
+}
+
+.content .movie__content {
+  max-width: 100%;
+}
+
+.content .movie__tagline span {
+  font-style: italic;
+}
+
+.content .right__content {
+  font-family: "Inter", sans-serif;
+}
+
+.content .right__content p {
+  font-size: 2.3rem;
+  padding-bottom: 1rem;
+  color: #e0e0e0;
+  font-weight: 600;
+}
+
+.content .right__content span {
+  margin-left: 1rem;
+  font-size: 2rem;
+  color: #adadad;
+  font-weight: 500;
+}
+
+.content .right__content .movie__story {
+  line-height: 1.5;
+}
+
+.movie__cast--heading,
+.movie__heading,
+.movie__trailer--heading,
+.movie__crew--heading {
+  -webkit-transition: all 1s ease;
+  transition: all 1s ease;
+}
+
+.movie__cast--heading {
+  color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
+.movie__crew--heading {
+  color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
+.movie__heading {
+  color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  margin: 4rem 0;
+  font-size: 5rem;
+  text-align: center;
+}
+
+.movie__cast,
+.movie__crew {
+  width: 92%;
+  max-width: 100%;
+  margin: 5rem auto;
+}
+
+.movie__cast .swiper-slide,
+.movie__crew .swiper-slide {
+  cursor: pointer;
+  font-family: "Inter", sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.movie__cast .swiper-slide img,
+.movie__crew .swiper-slide img {
+  width: 100%;
+  border-radius: 0.8rem;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.movie__cast .swiper-slide .name__in__real,
+.movie__crew .swiper-slide .name__in__real {
+  color: #e0e0e0;
+  font-size: 2rem;
+  margin: 1.3rem 0 1rem 0;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.movie__cast .swiper-slide .name__in__movie,
+.movie__crew .swiper-slide .name__in__movie {
+  color: #929191;
+  font-size: 1.6rem;
+}
+
+.movie__trailer {
+  width: 92%;
+  max-width: 100%;
+  margin: 5rem auto;
+}
+
+.movie__trailer .movie__trailer--heading {
+  color: #e0e0e0;
+  font-family: "Montserrat", sans-serif;
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  margin-top: 3rem;
+}
+
+.movie__trailer iframe {
+  width: 100%;
+  border-radius: 1rem;
+}
+
+@-webkit-keyframes card__animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes card__animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(-50px);
+            transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@media (max-width: 900px) {
+  .content {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 600px) {
+  .right__content,
+  .movie__content {
+    padding: 1.4rem;
+  }
+  .movie__image {
+    max-width: 100%;
+  }
+}
+
+.hide {
+  visibility: hidden;
+}
+/*# sourceMappingURL=movie.css.map */
