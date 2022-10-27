@@ -3,7 +3,6 @@
 body {
   min-height: 100vh;
   background: $light-black;
-  // background: linear-gradient(to top left, #28b487, #7dd56f);
   position: relative;
 }
 
@@ -98,7 +97,6 @@ body {
     transition: all 0.5s ease;
 
     &:hover {
-      // transform: translateY(-10px);
       transform: translateY(-10px);
     }
   }
@@ -117,7 +115,6 @@ body {
     letter-spacing: 0.5px;
 
     &__name {
-      // font-size: clamp(1.085rem, 1.2vw, 1.5rem);
       font-size: clamp(1.2rem, 1.2vw, 1.5rem);
 
       font-weight: 500;

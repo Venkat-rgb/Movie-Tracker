@@ -1,8 +1,7 @@
-"use strict";
+import MOVIE_API_KEY from "./apikey.js";
 
 // ALL API LINKS.
-
-const API_KEY = "04c35731a5ee918f014970082a0088b1";
+const API_KEY = MOVIE_API_KEY;
 
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 
@@ -10,21 +9,11 @@ const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
 const SEARCH_URL = `https://api.themoviedb.org/3/search/movie?&api_key=${API_KEY}&query=`;
 
-const GET_DETAILS = `https://api.themoviedb.org/3/movie/473234?api_key=${API_KEY}&language=en-US`;
-
-const VIDEO_DETAILS = `https://api.themoviedb.org/3/movie/473234/videos?api_key=${API_KEY}&language=en-US`;
-
-const UPCOMING_DETAILS = `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&page=2`;
-
-const CAST_DETAILS = `https://api.themoviedb.org/3/movie/690957/credits?api_key=${API_KEY}&language=en-US`;
-
 const GENRE_DETAILS = `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`;
 
 // ALL VARIABLE DECLARATIONS.
 const cards = document.querySelector(".cards");
 const textBox = document.querySelector(".text-box");
-const movieDetails = document.querySelector(".movie__details");
-const overlay = document.querySelector(".overlay");
 const inputFieldDiv = document.querySelector(".input-field");
 const genres = document.querySelector(".genres");
 const prevBtn = document.querySelector(".prev__btn");
@@ -84,12 +73,6 @@ async function getData(url = API_URL) {
     totalPages = data.total_pages;
 
     currBtn.innerText = currentPage;
-
-    // console.log(data);
-
-    // if (currMovie.length === 0) {
-    //   throw new Error("No Results Found!");
-    // }
 
     currMovie.forEach((movie) => {
       const movieImg = movie.poster_path;
@@ -180,8 +163,6 @@ async function setGenre() {
     const res = await fetch(GENRE_DETAILS);
     const data = await res.json();
     const allGenres = data.genres;
-
-    // console.log(allGenres);
 
     allGenres.forEach((genre, i) => {
       const currGenre = document.createElement("button");

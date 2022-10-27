@@ -47,7 +47,6 @@ p {
 
     & p {
       font-size: 2.3rem;
-      // border-bottom: 0.1px solid rgb(92, 92, 92);
       padding-bottom: 1rem;
       color: $light-white;
       font-weight: 600;
@@ -90,7 +89,6 @@ p {
 
 .movie__cast,
 .movie__crew {
-  // max-width: 126rem;
   width: 92%;
   max-width: 100%;
   margin: 5rem auto;
@@ -168,69 +166,3 @@ p {
 .hide {
   visibility: hidden;
 }
-
-// .movie__cast {
-//   max-width: 130rem;
-//   padding: 2rem;
-//   margin: 0 auto;
-//   display: flex;
-//   flex-direction: column;
-//   position: relative;
-
-//   .actors {
-//     display: grid;
-//     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-//     // display: flex;
-//     gap: 4rem;
-//     // overflow: hidden;
-
-//     font-family: "Inter", sans-serif;
-
-//     .actor__details {
-//       transition: all 0.5s ease;
-//       &:hover {
-//         transform: translateY(-10px);
-//       }
-//     }
-
-//     .actor__details img {
-//       max-width: 20rem;
-//       border-radius: 1rem;
-//       cursor: pointer;
-//     }
-//   }
-
-//   .no__image {
-//     transform: translateY(-20px);
-//   }
-// }
-
-// button {
-//   position: absolute;
-//   top: 50%;
-//   width: 3.8rem;
-//   height: 3.8rem;
-//   border-radius: 50%;
-//   border: none;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-//   cursor: pointer;
-//   background-color: rgba(255, 255, 255, 0.7);
-
-//   svg {
-//     width: 2rem;
-//     height: 2rem;
-//     stroke: rgba(0, 0, 0, 0.6);
-//     stroke-width: 3px;
-//   }
-// }
-
-// .left__btn {
-//   transform: translate(-50%, -50%);
-// }
-
-// .right__btn {
-//   right: 0;
-//   transform: translate(-50%, -50%);
-// }

@@ -1,23 +1,17 @@
-"use strict";
+import MOVIE_API_KEY from "./apikey.js";
 
 const movieDetails = localStorage.getItem("movie_link");
 const rightContent = document.querySelector(".right__content");
 const movieContent = document.querySelector(".movie__content");
-// const actors = document.querySelector(".actors");
 const movieCast = document.querySelector(".movie__cast .swiper-wrapper");
 const movieCrew = document.querySelector(".movie__crew .swiper-wrapper");
-
 const movieTrailer = document.querySelector(".movie__trailer");
 const movieHeading = document.querySelector(".movie__heading");
 const movieCastHeading = document.querySelector(".movie__cast--heading");
 const movieCrewHeading = document.querySelector(".movie__crew--heading");
 const movieTrailerHeading = document.querySelector(".movie__trailer--heading");
-const leftBtn = document.querySelector(".left__btn");
-const rightBtn = document.querySelector(".right__btn");
 
-const API_KEY = "04c35731a5ee918f014970082a0088b1";
-
-const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
+const API_KEY = MOVIE_API_KEY;
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
@@ -111,7 +105,6 @@ async function setData() {
     if (!imageRes.ok) throw new Error("No Results Found");
 
     const imageData = await imageRes.json();
-    // console.log(imageData);
 
     const castLink = fetch(
       `https://api.themoviedb.org/3/movie/${imageData.id}/credits?api_key=${API_KEY}&language=en-US`
@@ -127,7 +120,6 @@ async function setData() {
 
     const castData = await castAndTrailerLinks[0].json();
     const { results: trailerData } = await castAndTrailerLinks[1].json();
-    // console.log(trailerData);
 
     const movieGenres = imageData.genres.map((genre) => {
       return genre.name;
@@ -237,9 +229,8 @@ async function setData() {
         item.name.includes("Teaser")
       );
     });
-    // console.log(trailerData);
+
     // setting trailer.
-    console.log(imageData);
     const htmlData3 = `
           <iframe
             width="853"
