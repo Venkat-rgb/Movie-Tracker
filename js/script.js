@@ -1,7 +1,5 @@
-import MOVIE_API_KEY from "./apikey.js";
-
 // ALL API LINKS.
-const API_KEY = MOVIE_API_KEY;
+const API_KEY = "04c35731a5ee918f014970082a0088b1";
 
 const API_URL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}`;
 

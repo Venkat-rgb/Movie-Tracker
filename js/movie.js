@@ -1,5 +1,3 @@
-import MOVIE_API_KEY from "./apikey.js";
-
 const movieDetails = localStorage.getItem("movie_link");
 const rightContent = document.querySelector(".right__content");
 const movieContent = document.querySelector(".movie__content");
@@ -11,7 +9,7 @@ const movieCastHeading = document.querySelector(".movie__cast--heading");
 const movieCrewHeading = document.querySelector(".movie__crew--heading");
 const movieTrailerHeading = document.querySelector(".movie__trailer--heading");
 
-const API_KEY = MOVIE_API_KEY;
+const API_KEY = "04c35731a5ee918f014970082a0088b1";
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
