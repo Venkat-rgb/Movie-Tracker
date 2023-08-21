@@ -16,16 +16,6 @@ body {
   position: relative;
 }
 
-.title {
-  text-align: center;
-  font-size: 2.5rem;
-  padding-top: 2rem;
-  color: white;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 500;
-  text-decoration: underline;
-}
-
 .input-field {
   height: 18vh;
   display: flex;
