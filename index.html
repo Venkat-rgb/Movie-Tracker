@@ -10,28 +10,48 @@
     <script defer src="js/script.js"></script>
   </head>
   <body>
-    <p
-      style="
-        text-align: center;
-        font-size: 2.5rem;
-        padding-top: 2rem;
-        color: white;
-        font-family: 'Montserrat', sans-serif;
-        font-weight: 500;
-        text-decoration: underline;
-      "
-    >
-      Movie Tracker App
-    </p>
-    <div class="input-field">
-      <input type="text" placeholder="Enter your movie" class="text-box" />
+    <div class="navbar">
+      <p class="heading">Movie Tracker App</p>
+      <button class="logout" type="button">Logout</button>
     </div>
-    <div class="genres"></div>
-    <div class="cards"></div>
-    <div class="pagination">
-      <button class="prev__btn btn">Prev page</button>
-      <p class="current__btn">1</p>
-      <button class="next__btn btn">Next page</button>
+
+    <div class="login-form-parent">
+      <div class="login-form">
+        <h4>Login (or) Register</h4>
+        <div>
+          <label for="username">Username (must be >= 4 characters)</label>
+          <input
+            type="text"
+            id="username"
+            class="username"
+            placeholder="Enter your username..."
+          />
+        </div>
+        <div>
+          <label for="password">Password (must be >= 7 characters)</label>
+          <input
+            type="password"
+            id="password"
+            class="password"
+            placeholder="Enter your password..."
+          />
+        </div>
+        <p class="error-credentials">Invalid credentials, please try again!</p>
+        <button class="login-btn" type="button">Login</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="input-field">
+        <input type="text" placeholder="Enter your movie" class="text-box" />
+      </div>
+      <div class="genres"></div>
+      <div class="cards"></div>
+      <div class="pagination">
+        <button class="prev__btn btn">Prev page</button>
+        <p class="current__btn">1</p>
+        <button class="next__btn btn">Next page</button>
+      </div>
     </div>
   </body>
 </html>

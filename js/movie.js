@@ -31,52 +31,52 @@ function getDuration(min) {
 
 function setMovieInfo(imageData, movieLanguages, movieGenres) {
   const htmlData1 = `
-        <p class="movie__name">Name :<span>${imageData.title}</span></p>
+        <p class="movie__name">Name :<span>${imageData?.title}</span></p>
         <p class="movie__tagline">Tag Line :<span>--   ${
-          imageData.tagline
+          imageData?.tagline
         } </span></p>
     
-        <p class="movie__language">Language :<span>${movieLanguages.join(
+        <p class="movie__language">Language :<span>${movieLanguages?.join(
           ", "
         )}</span></p>
         <p class="movie__release__date">
-            Release Date :<span>${imageData.release_date}</span>
+            Release Date :<span>${imageData?.release_date}</span>
         </p>
         <p class="movie__genre">
-            Movie Genres :<span>${movieGenres.join(", ")}</span>
+            Movie Genres :<span>${movieGenres?.join(", ")}</span>
         </p>
         <p class="movie__story">
             Story :<span
-            >${imageData.overview}</span>
+            >${imageData?.overview}</span>
         </p>
         <p class="movie__runtime">Duration :<span>${getDuration(
-          imageData.runtime
+          imageData?.runtime
         )}</span></p>
-        <p class="movie__budget">Movie Budget :<span>$${imageData.budget.toLocaleString(
+        <p class="movie__budget">Movie Budget :<span>$${imageData?.budget?.toLocaleString(
           "en-US"
         )}</span></p>
-        <p class="movie__revenue">Movie Revenue :<span>$${imageData.revenue.toLocaleString(
+        <p class="movie__revenue">Movie Revenue :<span>$${imageData?.revenue?.toLocaleString(
           "en-US"
         )}</span></p>
         <p class="movie__rating">IMDb Rating :<span>${
-          imageData.vote_average
+          imageData?.vote_average
         }</span></p>
     `;
   rightContent.innerHTML = htmlData1;
 }
 
 function setCastAndCrew(actor, team = true) {
-  let img = `<img src=${IMG_URL}${actor.profile_path}>`;
-  if (!actor.profile_path) {
+  let img = `<img src=${IMG_URL}${actor?.profile_path}>`;
+  if (!actor?.profile_path) {
     img = `<img src=${blankImage} class="no__image">`;
   }
 
   const htmlData = `
             <div class="swiper-slide">
                 ${img}
-                <p class="name__in__real">${actor.original_name}</p>
+                <p class="name__in__real">${actor?.original_name}</p>
                 <p class="name__in__movie">${
-                  team === true ? actor.character : actor.job
+                  team === true ? actor?.character : actor?.job
                 }</p>
             </div>
            `;
@@ -94,8 +94,8 @@ async function setData() {
     if (!res.ok) throw new Error("No Results Found");
 
     const data = await res.json();
-    const [movieData] = data.results;
-    const movieId = movieData.id;
+    const [movieData] = data?.results;
+    const movieId = movieData?.id;
 
     const imageRes = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`
@@ -105,11 +105,11 @@ async function setData() {
     const imageData = await imageRes.json();
 
     const castLink = fetch(
-      `https://api.themoviedb.org/3/movie/${imageData.id}/credits?api_key=${API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${imageData?.id}/credits?api_key=${API_KEY}&language=en-US`
     );
 
     const trailerLink = fetch(
-      `https://api.themoviedb.org/3/movie/${imageData.id}/videos?api_key=${API_KEY}&language=en-US`
+      `https://api.themoviedb.org/3/movie/${imageData?.id}/videos?api_key=${API_KEY}&language=en-US`
     );
     const castAndTrailerLinks = await Promise.all([castLink, trailerLink]);
 
@@ -120,11 +120,11 @@ async function setData() {
     const { results: trailerData } = await castAndTrailerLinks[1].json();
 
     const movieGenres = imageData.genres.map((genre) => {
-      return genre.name;
+      return genre?.name;
     });
 
     const movieLanguages = imageData.spoken_languages.map((language) => {
-      return language.english_name;
+      return language?.english_name;
     });
 
     // setting cast data.
@@ -136,7 +136,7 @@ async function setData() {
     const crewCategories = ["Editor","Director","Producer","Original Music Composer","Writer"];
 
     const crewArr = castData.crew.filter((item) => {
-      return crewCategories.includes(item.job);
+      return crewCategories.includes(item?.job);
     });
 
     crewArr.forEach((actor) => {
@@ -211,7 +211,7 @@ async function setData() {
     });
 
     // setting main movie image.
-    const htmlData2 = `<img class="movie__image" src=${IMG_URL}${imageData.poster_path}>`;
+    const htmlData2 = `<img class="movie__image" src=${IMG_URL}${imageData?.poster_path}>`;
     movieContent.innerHTML = htmlData2;
 
     // setting movie info.
@@ -233,7 +233,7 @@ async function setData() {
           <iframe
             width="853"
             height="550"
-            src="https://www.youtube.com/embed/${officialTrailer.key}"
+            src="https://www.youtube.com/embed/${officialTrailer?.key}"
             title=""
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"    

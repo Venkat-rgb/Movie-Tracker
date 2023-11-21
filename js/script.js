@@ -12,6 +12,13 @@ const GENRE_DETAILS = `https://api.themoviedb.org/3/genre/movie/list?api_key=${A
 // ALL VARIABLE DECLARATIONS.
 const cards = document.querySelector(".cards");
 const textBox = document.querySelector(".text-box");
+const mainContent = document.querySelector(".main-content");
+const usernameInput = document.querySelector(".username");
+const passwordInput = document.querySelector(".password");
+const loginBtn = document.querySelector(".login-btn");
+const loginForm = document.querySelector(".login-form-parent");
+const logoutBtn = document.querySelector(".logout");
+const errorCredentials = document.querySelector(".error-credentials");
 const inputFieldDiv = document.querySelector(".input-field");
 const genres = document.querySelector(".genres");
 const prevBtn = document.querySelector(".prev__btn");
@@ -19,6 +26,42 @@ const nextBtn = document.querySelector(".next__btn");
 const currBtn = document.querySelector(".current__btn");
 const pagination = document.querySelector(".pagination");
 const pTag = document.createElement("p");
+
+function clearInputs() {
+  usernameInput.value = "";
+  passwordInput.value = "";
+}
+
+function loginStatus() {
+  loginForm.classList.add("hide");
+  mainContent.classList.add("active");
+  logoutBtn.classList.add("active");
+
+  clearInputs();
+}
+
+function logoutStatus() {
+  loginForm.classList.remove("hide");
+  mainContent.classList.remove("active");
+  logoutBtn.classList.remove("active");
+}
+
+// Is user logged in
+function isUserLoggedIn() {
+  const user =
+    localStorage.getItem("loginInfo") &&
+    JSON.parse(localStorage.getItem("loginInfo"));
+
+  if (user) {
+    // User is logged in
+    loginStatus();
+  } else {
+    // User is not logged in
+    logoutStatus();
+  }
+}
+
+isUserLoggedIn();
 
 // changing colors for imdb rating.
 function changeColor(rating) {
@@ -209,3 +252,33 @@ async function getDataOnClick(e) {
 
 // when we click on card_items this should happen.
 cards.addEventListener("click", getDataOnClick);
+
+// User login Event Listener
+loginBtn.addEventListener("click", () => {
+  const trimmedUserName = usernameInput.value.trim(),
+    trimmedPassword = passwordInput.value.trim();
+
+  if (trimmedUserName && trimmedPassword) {
+    if (trimmedUserName?.length >= 4 && trimmedPassword?.length >= 7) {
+      localStorage.setItem(
+        "loginInfo",
+        JSON.stringify({
+          username: trimmedUserName,
+          password: trimmedPassword,
+        })
+      );
+
+      errorCredentials.classList.remove("active");
+
+      loginStatus();
+    } else {
+      errorCredentials.classList.add("active");
+    }
+  }
+});
+
+// User Logout
+logoutBtn.addEventListener("click", () => {
+  localStorage.removeItem("loginInfo");
+  logoutStatus();
+});
